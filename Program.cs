@@ -1,35 +1,48 @@
+using Microsoft.EntityFrameworkCore;
+using TodoApi.DatabaseContext; // Your DbContext namespace
+using TodoApi.Extensions;
+using TodoApi.Mapping; // AutoMapper profiles namespace
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container
+builder.Services.AddControllers();
+
+// Add DbContext with SQL Server
+builder.Services.AddDatabase(builder.Configuration); // extension method from DatabaseServiceExtensions
+
+// Add Swagger
+builder.Services.AddSwaggerDocumentation(); // extension method from SwaggerServiceExtensions
+
+// Add AutoMapper
+builder.Services.AddAutoMapper(typeof(TodoProfile));
+
+// Add repository / unit-of-work / service DI here if needed
+// builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Apply migrations and seed database
+await app.Services.SeedDatabaseAsync();
+
+// Configure middleware
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+
+// Enable Swagger UI at root
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Todo API v1");
+    c.RoutePrefix = string.Empty; // Swagger at root: https://localhost:5001/
+});
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseAuthorization(); // no JWT, just keep Authorization middleware
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-
-});
+app.MapControllers();
 
 app.Run();
-
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
