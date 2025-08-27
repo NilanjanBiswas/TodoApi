@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "a05b18b3-c6fd-4fc4-b547-a8a9b404de98",
+		"name": "TodosAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47949393",
+		"_collection_link": "https://nilanjanbiswas.postman.co/workspace/Nilanjan-Biswas's-Workspace~78ddbcae-827b-46e2-8375-6dafb8638048/collection/47949393-a05b18b3-c6fd-4fc4-b547-a8a9b404de98?action=share&source=collection_link&creator=47949393"
+	},
+	"item": [
+		{
+			"name": "https://localhost:7133/api/v1/Auth/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"demo@example.com\",\r\n  \"password\": \"Demo@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7133/api/v1/Auth/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7133",
+					"path": [
+						"api",
+						"v1",
+						"Auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7133/api/v1/Auth/signup",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "secret",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYjRhNDIxOC1mMGQ0LTRkNTgtOGY0ZS0xMzQ3MDE4MmJmN2IiLCJ1bmlxdWVfbmFtZSI6ImRlbW9fdXNlciIsImVtYWlsIjoiZGVtb0BleGFtcGxlLmNvbSIsIm5iZiI6MTc1NjI4NDkyNCwiZXhwIjoxNzU2Mjg4NTIzLCJpYXQiOjE3NTYyODQ5MjQsImlzcyI6IlRvZG9BcGkiLCJhdWQiOiJUb2RvQXBpVXNlcnMifQ.7zaBSzalsDvoxjXENEYeuW_X4iV2DyaAYx4RgVRlLEc",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userName\": \"neel\",\r\n  \"email\": \"nilanjan.biswas@hpl.com.bd\",\r\n  \"password\": \"Neel@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7133/api/v1/Auth/signup",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7133",
+					"path": [
+						"api",
+						"v1",
+						"Auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7133/api/v1/Todos/DA74901D-AFD6-4E28-9381-28562AE0B6E4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYjRhNDIxOC1mMGQ0LTRkNTgtOGY0ZS0xMzQ3MDE4MmJmN2IiLCJ1bmlxdWVfbmFtZSI6ImRlbW9fdXNlciIsImVtYWlsIjoiZGVtb0BleGFtcGxlLmNvbSIsIm5iZiI6MTc1NjI4NTY1NiwiZXhwIjoxNzU2Mjg5MjU2LCJpYXQiOjE3NTYyODU2NTYsImlzcyI6IlRvZG9BcGkiLCJhdWQiOiJUb2RvQXBpVXNlcnMifQ.VlWhVsD78axHIV5iFL2hIzsNUQf1z-FUSiLPs8wP0TM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7133/api/v1/Todos/DA74901D-AFD6-4E28-9381-28562AE0B6E4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7133",
+					"path": [
+						"api",
+						"v1",
+						"Todos",
+						"DA74901D-AFD6-4E28-9381-28562AE0B6E4"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7133/api/v1/Todos/getall?page=1&pageSize=10",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYjRhNDIxOC1mMGQ0LTRkNTgtOGY0ZS0xMzQ3MDE4MmJmN2IiLCJ1bmlxdWVfbmFtZSI6ImRlbW9fdXNlciIsImVtYWlsIjoiZGVtb0BleGFtcGxlLmNvbSIsIm5iZiI6MTc1NjI4NTY1NiwiZXhwIjoxNzU2Mjg5MjU2LCJpYXQiOjE3NTYyODU2NTYsImlzcyI6IlRvZG9BcGkiLCJhdWQiOiJUb2RvQXBpVXNlcnMifQ.VlWhVsD78axHIV5iFL2hIzsNUQf1z-FUSiLPs8wP0TM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7133/api/v1/Todos/getall?page=1&pageSize=10",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7133",
+					"path": [
+						"api",
+						"v1",
+						"Todos",
+						"getall"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7133/api/v1/Todos/create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYjRhNDIxOC1mMGQ0LTRkNTgtOGY0ZS0xMzQ3MDE4MmJmN2IiLCJ1bmlxdWVfbmFtZSI6ImRlbW9fdXNlciIsImVtYWlsIjoiZGVtb0BleGFtcGxlLmNvbSIsIm5iZiI6MTc1NjI4NTY1NiwiZXhwIjoxNzU2Mjg5MjU2LCJpYXQiOjE3NTYyODU2NTYsImlzcyI6IlRvZG9BcGkiLCJhdWQiOiJUb2RvQXBpVXNlcnMifQ.VlWhVsD78axHIV5iFL2hIzsNUQf1z-FUSiLPs8wP0TM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"test for delete\",\r\n  \"description\": \"test description\",\r\n  \"dueDate\": \"2025-08-27T09:27:55.947Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7133/api/v1/Todos/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7133",
+					"path": [
+						"api",
+						"v1",
+						"Todos",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7133/api/v1/Todos/update/3EDDFA8B-51B6-48AF-B7F2-621144324112",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYjRhNDIxOC1mMGQ0LTRkNTgtOGY0ZS0xMzQ3MDE4MmJmN2IiLCJ1bmlxdWVfbmFtZSI6ImRlbW9fdXNlciIsImVtYWlsIjoiZGVtb0BleGFtcGxlLmNvbSIsIm5iZiI6MTc1NjI4NTY1NiwiZXhwIjoxNzU2Mjg5MjU2LCJpYXQiOjE3NTYyODU2NTYsImlzcyI6IlRvZG9BcGkiLCJhdWQiOiJUb2RvQXBpVXNlcnMifQ.VlWhVsD78axHIV5iFL2hIzsNUQf1z-FUSiLPs8wP0TM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"updated test\",\r\n  \"description\": \"updated \",\r\n  \"isCompleted\": true,\r\n  \"dueDate\": \"2025-08-27T09:29:18.663Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7133/api/v1/Todos/update/3EDDFA8B-51B6-48AF-B7F2-621144324112",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7133",
+					"path": [
+						"api",
+						"v1",
+						"Todos",
+						"update",
+						"3EDDFA8B-51B6-48AF-B7F2-621144324112"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7133/api/v1/Todos/delete/89E5576E-CBC5-4E4E-9387-7CE74B3BF262",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYjRhNDIxOC1mMGQ0LTRkNTgtOGY0ZS0xMzQ3MDE4MmJmN2IiLCJ1bmlxdWVfbmFtZSI6ImRlbW9fdXNlciIsImVtYWlsIjoiZGVtb0BleGFtcGxlLmNvbSIsIm5iZiI6MTc1NjI4NTY1NiwiZXhwIjoxNzU2Mjg5MjU2LCJpYXQiOjE3NTYyODU2NTYsImlzcyI6IlRvZG9BcGkiLCJhdWQiOiJUb2RvQXBpVXNlcnMifQ.VlWhVsD78axHIV5iFL2hIzsNUQf1z-FUSiLPs8wP0TM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7133/api/v1/Todos/delete/89E5576E-CBC5-4E4E-9387-7CE74B3BF262",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7133",
+					"path": [
+						"api",
+						"v1",
+						"Todos",
+						"delete",
+						"89E5576E-CBC5-4E4E-9387-7CE74B3BF262"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
